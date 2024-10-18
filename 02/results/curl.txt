@@ -1,0 +1,39 @@
+curl http://ni-am.fit.cvut.cz:8888/NI-AM1-ApplicationProtocols/protocol/welcome
+OK
+Your next page is /protocol/get
+send GET parameter "name" with value "minority" 
+set Header "Accept" to "text/plain" 
+
+curl http://ni-am.fit.cvut.cz:8888/NI-AM1-ApplicationProtocols/protocol/get?name=minority -H "Accept: text/plain"
+OK
+Your next page is /protocol/post 
+send POST parameter "name" with value "meant"
+and set Header "Accept" is "text/plain" 
+and set Header "Accept-Language" is "en-US" 
+
+curl -X POST http://ni-am.fit.cvut.cz:8888/NI-AM1-ApplicationProtocols/protocol/post -d "name=meant" -H "Accept: text/plain" -H "Accept-Language: en-US"
+OK
+Your next page is /protocol/referer 
+change referer to value "criterion"
+set Header "Accept" is "text/html"
+
+curl http://ni-am.fit.cvut.cz:8888/NI-AM1-ApplicationProtocols/protocol/referer -H "Accept: text/html" -e "criterion"
+OK
+Your next page is /protocol/useragent
+and change User-Agent to value "dragon"
+and set Header "Accept-Language" is "en-US" 
+
+curl http://ni-am.fit.cvut.cz:8888/NI-AM1-ApplicationProtocols/protocol/useragent -H "Accept-Language: en-US" -A "dragon"
+OK
+Your next page is /protocol/cookie 
+send cookie called "name" with value "jbrown"
+
+curl http://ni-am.fit.cvut.cz:8888/NI-AM1-ApplicationProtocols/protocol/cookie -b "name=jbrown"
+OK
+Your next page is /protocol/auth 
+authenticate by "discriminate:ethics"
+set Header "Accept" is "text/html" 
+
+curl http://ni-am.fit.cvut.cz:8888/NI-AM1-ApplicationProtocols/protocol/auth -H "Accept: text/html" -u "discriminate:ethics"
+OK
+Your final result is: oh
